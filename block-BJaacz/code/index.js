@@ -3,15 +3,16 @@
 /*
   Create a function named addTwo which accepts a number, adds 2 to the number and return the new value.
 */
-
+let addTwo = (numA) => numA + 2 ;
 /*
   Create a function named addThree which accepts a number, adds 3 to the number and return the new value.
 */
+let addThree = (numB) => numB + 3 ;
 
 /*
   Create a function named addFive which accepts a number, adds 5 to the number and return the new value.
 */
-
+let addFive = (numC) => numC + 5;
 /*
   Create a function named addTwoToArray which accepts:
     - An array of numbers
@@ -19,13 +20,23 @@
     - While doing so use the funciton addTwo
 */
 
+function addTwoToArray (arr){
+   for(let value of arr){
+     return(value + 2);
+   }
+  }   
+  
 /*
   Create a function named addThreeToArray which accepts:
     - an array of numbers
     - aeturns a new array where 2 is added to each element
     - while doing so use the funciton addThree
 */
-
+function addThreeToArray(arr){
+  for(let value of arr){
+    return(value + 3);
+  }
+}
 /*
   Create a function named addFiveToArray which accepts:
     - an array of numbers
@@ -42,12 +53,18 @@ In above function addTwoToArray, addThreeToArray, addFiveToArray we are repeatin
     - pass each element of array to the callback function
     - and store the value returned from callback function in a new array
     - return the new array
-
+*/
+ function changeArray(arr,cb) {
+  for(let value of arr){
+   cb + value;
+  }
+  return cb;
+ }
   EXAMPLE:
     console.log(changeArray([1, 2, 3, 4, 5, 6], addTwo)); // [3, 4, 5, 6, 7, 8]
     console.log(changeArray([1, 2, 3, 4, 5, 6], addThree)); // [4, 5, 6, 7, 8, 9]
     console.log(changeArray([1, 2, 3, 4, 5, 6], addFive)); // [6, 7, 8, 9, 10, 11]
-*/
+
 
 /*
   Create a function called sendMessage that accepts two arguments:
