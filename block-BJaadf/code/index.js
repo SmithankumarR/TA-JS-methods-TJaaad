@@ -24,14 +24,17 @@ console.log(fruits.indexOf('Guava') === 1);
 // Update the value of index 1 to `Pears`
 console.log(fruits[1] = 'Pears');
 // Add the 'Kiwi' and 'Lemon' to the index 1 and 2 and shift the other element to next index (use splice to add element)
-console.log(fruits.unshift('Kiwi', 'Lemon',));
+console.log(fruits.splice(1,0,'Kiwi', 'Lemon',));
 // Remove (slice) all the element from index 5
 console.log(fruits.slice(5));
 // Create another array named moreFruits with values ['Berries', 'Melons']
 let moreFruits = ['Berries', 'Melons'];
-fruits.concat(moreFruits);
 
 // Concat moreFruits into fruits array (re-assign so the value gets updated)
+fruits = fruits.concat(moreFruits);
+
+
+
 // Log the name of all fruit in console
 console.log(fruits);
 // Convert each fruit name to lowercase and log it
@@ -82,6 +85,11 @@ final.reverse()
 // Reverse the values of numbersTwo array
 final2.reverse()
 // Join all fruits with '-', convert to uppercase and log it
+console.log(fruits.join("-").toUpperCase());
+console.log(fruits.join("&").toLowerCase());
+
+
+
 
 
 
