@@ -127,3 +127,6 @@ let sortedgrade = [...peopleGrade].sort(
 peopleName.sort();
 // Sort the array peopelName in ascending `ABCD..Za....z`. Make sure not to mutate the array
 [...peopleName].sort();
+
+
+
