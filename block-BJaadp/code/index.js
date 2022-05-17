@@ -50,7 +50,7 @@ let highestGradeInFemale = filteredFemale.sort((a,b) => a-b).pop();
 
 // Find the highest grade for people whose name starts with 'J' or 'P'
 let gradeOf_JorP = persons.map((m) => {
-   if(m.name.startsWith('J')){
+   if(m.name.startsWith('J') && (m.name.startsWith('P'))){
     return m.grade;
 }
 });
@@ -77,8 +77,15 @@ that fruit has appeared in the array. Store it in new variable fruitsObj
 Output: 
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
-let obj = {};
-let fruitsObj = fruitBasket.map((f) =>  f.slice(0,2))
+let fruitsObj = fruitBasket.reduce((acc,cv)=> {
+  if(acc[cv]){
+    acc[cv] = acc[cv] + 1;
+} else {
+  acc[cv] = 1;
+}
+return acc;
+},{});
+
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -88,6 +95,10 @@ Output:
 
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
+let fruitsArray = Object.keys(fruitsObj).reduce((acc,cv) => {
+  acc =acc.concat([[cv,fruitsObj[cv]]]);
+  return acc;
+}, []);
 const data = [
   [1, 2, 3],
   [4, 5, 6],
@@ -96,6 +107,11 @@ const data = [
 ];
 
 // Using reduce flat data array
+data.reduce((acc,cv)=> {
+  acc = acc.concat(cv);
+  return acc;
+},[]);
+
 let flatArray = data.flat(2).reduce((acc,cv) => {
 return acc + cv;
 },0);
@@ -107,6 +123,11 @@ const dataTwo = [
 ];
 
 // Using reduce flat dataTwo array
+dataTwo.reduce((acc,cv)=> {
+  acc = acc.concat(cv.flat(Infinity));
+  return acc;
+},[]);
+
 let flatArrayTwo = dataTwo.flat(2).reduce((acc,cv) => {
   return acc + cv;
   },0);
@@ -120,8 +141,21 @@ Create these functions which accepts a number value and returns a number value:
   - `half` converts the value to half and return the integer value not decimal 
 (use Math.round(21.5) => 21)
 */
-
-let newpipeline = pipeline.toString();
+function increment(num) {
+  return num + 1;
+}
+function decrement(num) {
+  return num - 1;
+}
+function double(num) {
+  return num * 2;
+}
+function triple(num) {
+  return num * 3;
+}
+function half(num) {
+  return math.round(num / 2);
+}
 let pipeline = [
   increment,
   double,
@@ -132,19 +166,10 @@ let pipeline = [
   half,
   increment,
 ];
-let converts = pipeline.map((num) => {
-  num[increment] = num + 1;
-  // num + 1;
-  // num * 2;
-  // num - 1;
-  // num -1;
-  // num * 2;
-  // num * 3;
-  // Math.round(num / 2);
-  // num + 1;
-  return num;
-});
-console.log(converts(5));
+pipeline.reduce((acc,cv)=> {
+  acc =  cv(acc);
+  return acc;
+},3)
 /*
 Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
 
@@ -174,3 +199,7 @@ let pipeline2 = [
 ];
 
 // Find the output using pipeline2 the initial value if 8
+pipeline2.reduce((acc,cv)=> {
+  acc =  cv(acc);
+  return acc;
+},8)
