@@ -1,35 +1,41 @@
 // NOTE: You can not use reduce methods to solve this exercise
 
 function countAllPeople() {
-  // your code goes here
+  return allPeople;
 }
-
+let allPeople = got.houses.filter((person) => person.people)
 function peopleByHouses() {
-  // your code goes here
+return personhouse
 }
-
+let personhouse = got.houses.filter((ph) => ph.people[1] );
 function everyone() {
-  // your code goes here
+  return allPeople
 }
 
 function nameWithS() {
-  // your code goes here
+return peoplewithS
 }
-
+let peoplewithS = got.houses .filter((peo) => peo.name.startsWith('S'));
 function nameWithA() {
-  // your code goes here
+return peoplewithA
 }
+  let peoplewithA = got.houses .filter((peo) => peo.name.startsWith('A'));
 
 function surnameWithS() {
-  // your code goes here
+return surnamewiths;
 }
+let surnamewiths = got.houses .filter((peo) => peo.name.startsWith('S'));
 
 function surnameWithA() {
   // your code goes here
+return peoplewithA
+
 }
 
 function peopleNameOfAllHouses() {
   // your code goes here
+return personhouse
+
 }
 
 // Testing your result after writing your function
